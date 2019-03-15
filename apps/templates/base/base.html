@@ -29,16 +29,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url_for('cms.index')}}">饿了么商家后台系统</a>
+                <a class="navbar-brand" href="{{url_for('cms.index')}}">今天你吃了吗商家后台系统</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="#">我要开店</a></li>
                 </ul>
-                {% if session.get('uid') %}
+                {% if current_user.is_authenticated %}
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">欢迎: {{session.get('uid')}}</a></li>
+                        <li><a href="">欢迎: {{ current_user.username }}</a></li>
                         <li><a href="{{url_for('cms.logout')}}">注销</a></li>
                     </ul>
                 {% else %}

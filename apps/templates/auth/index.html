@@ -6,8 +6,12 @@
 
 {% block content %}
     <div class="container">
-        <h1 class="text-center">饿了吗商家管理系统</h1>
+        <h1 class="text-center">今天你吃了吗商家管理系统</h1>
         <hr>
-        <div>饿了吗平台欢迎您入驻，赶快加入我们吧</div>
+        {% if current_user.is_authenticated %}
+            Hi {{ current_user.username }}!
+        {% else %}
+            <div>今天你吃了吗平台欢迎您入驻，赶快加入我们吧</div>
+        {% endif %}
     </div>
 {% endblock %}
